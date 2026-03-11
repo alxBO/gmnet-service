@@ -1,0 +1,3 @@
+[submodule "vendor/GMNet"]
+	path = vendor/GMNet
+	url = https://github.com/qtlark/GMNet.git
