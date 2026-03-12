@@ -18,6 +18,7 @@ class UploadResponse(BaseModel):
     mean_luminance_linear: float
     peak_luminance_linear: float
     contrast_ratio: float
+    min_luminance_linear: float = 0.0
     clipping_percent: float
 
 
@@ -37,6 +38,7 @@ class ProgressEvent(BaseModel):
 class HdrAnalysis(BaseModel):
     dynamic_range_ev: float
     contrast_ratio: float
+    min_luminance: float = 0.0
     peak_luminance: float
     mean_luminance: float
     luminance_percentiles: Dict[str, float]
