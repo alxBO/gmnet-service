@@ -231,9 +231,9 @@ class GMNetPipeline:
         gm = q_gain_map.detach().squeeze().float().cpu().numpy()
         gm = np.clip(gm, 0, 1)
 
-        # Upscale gain map if scale > 1
+        # Resize gain map to match original resolution (network output may differ by a few pixels)
         h, w = img_linear.shape[:2]
-        if scale > 1:
+        if gm.shape[0] != h or gm.shape[1] != w:
             gm = cv2.resize(gm, (w, h), interpolation=cv2.INTER_LINEAR)
 
         # Expand to (H, W, 1) for broadcasting
